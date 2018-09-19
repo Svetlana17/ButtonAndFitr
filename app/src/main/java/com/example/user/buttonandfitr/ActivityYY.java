@@ -48,12 +48,12 @@ public class ActivityYY extends  AppCompatActivity implements SensorEventListene
                 new DataPoint(0, 0),
 
         });
-        seriesY.setColor(Color.BLACK);
+        seriesY.setColor(Color.GREEN);
         seriesYY = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 new DataPoint(0, 0),
 
         });
-        seriesYY.setColor(Color.RED);
+        seriesYY.setColor(Color.CYAN);
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(20);
@@ -79,7 +79,7 @@ public class ActivityYY extends  AppCompatActivity implements SensorEventListene
         graph2LastYValue += 1d;
 
 
-        yy = (float) (On_1 + altha * (x - On_1));
+        yy = (float) (On_1 + altha * (y - On_1));
 
 
         seriesY.appendData(new DataPoint(graph2LastYValue, y), true, 20);

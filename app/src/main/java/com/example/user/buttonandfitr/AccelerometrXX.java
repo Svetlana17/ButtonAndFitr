@@ -25,8 +25,7 @@ public class AccelerometrXX extends AppCompatActivity implements SensorEventList
     Sensor sensorAccelerometr;
     GraphView graph;
     private double graph2LastXValue = 5d;
-    private double graph2LastYValue = 5d;
-    private double graph2LastZValue = 5d;
+
     private Double[] dataPoints;
     LineGraphSeries<DataPoint> seriesX;
     LineGraphSeries<DataPoint> seriesXX;
@@ -105,7 +104,7 @@ public class AccelerometrXX extends AppCompatActivity implements SensorEventList
                 new DataPoint(0, 0),
 
         });
-        seriesX.setColor(Color.BLACK);
+        seriesX.setColor(Color.RED);
 
 
 
@@ -116,7 +115,7 @@ public class AccelerometrXX extends AppCompatActivity implements SensorEventList
                 new DataPoint(0, 0),
 
         });
-        seriesXX.setColor(Color.YELLOW);
+        seriesXX.setColor(Color.GRAY);
 
 
 

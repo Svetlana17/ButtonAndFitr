@@ -6,4 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".GiroscopeActivity">
 
+    <TextView
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:text="Это гирокоп"/>
+    <Button
+        android:id="@+id/buttonXX"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/buttonYY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:background="@android:color/holo_green_dark"
+        android:onClick="onClick"
+        android:text="@string/xx"
+        tools:ignore="UnknownId" />
+    <Button
+        android:id="@+id/buttonYY"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/buttonYYG"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="135dp"
+        android:onClick="onClick"
+        android:text="@string/yy"
+        android:background="@android:color/holo_green_dark"
+        tools:ignore="UnknownId" />
+    <Button
+        android:id="@+id/buttonZZ"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:background="@android:color/holo_green_dark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="250dp"
+        android:onClick="onClick"
+        android:text="@string/zz"
+        tools:ignore="UnknownId" />
+
 </android.support.constraint.ConstraintLayout>

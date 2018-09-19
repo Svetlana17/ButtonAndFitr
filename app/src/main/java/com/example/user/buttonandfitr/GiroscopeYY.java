@@ -9,50 +9,36 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-public class MainActivity extends AppCompatActivity  implements SensorEventListener, View.OnClickListener {
+public class GiroscopeYY extends  AppCompatActivity
+        implements SensorEventListener, View.OnClickListener {
     private SensorManager mSensorManager;
 
 
-    private static final String LOG_TAG = "my_tag";
-    private static final int REFRESH_ID = 1;
     private static final int GIROSCOPE = 2;
-    private static final int MOVENENT=3;//ПЕРЕМЕЩЕНИЕ
-    private static final int LOAD_DATA_ID = 2;
 
-    Sensor sensorAccelerometr;
+
+    Sensor sensorGiroscope;
     GraphView graph;
-    private double graph2LastXValue = 5d;
     private double graph2LastYValue = 5d;
-    private double graph2LastZValue = 5d;
+
     private Double[] dataPoints;
-    LineGraphSeries<DataPoint> series;
-    LineGraphSeries<DataPoint> seriesX;
-    LineGraphSeries<DataPoint> seriesZ;
-    LineGraphSeries<DataPoint> seriesXX;
+    LineGraphSeries<DataPoint> seriesY;
     LineGraphSeries<DataPoint> seriesYY;
-    LineGraphSeries<DataPoint> seriesZZ;
+
+
     private Thread thread;
     private boolean plotData = true;
     float xx;
-    float yy;
-    float zz;
+
     private boolean graficflag = false;
-    private float On_1 = 1;
-    private float altha = 0.1f;
-    private boolean state;
-    private int timer = 0;
-    Button buttonGiroscope;
+
     //    Spinner spinner;
 //    String[] acxios = {"ускорение  по х", "ускорение по y ", "ускорение по z "};
     Button mButton;
@@ -60,64 +46,38 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_giroscope_xx);
         mButton = (Button) findViewById(R.id.buttonXX);
-        mButton.setOnClickListener((View.OnClickListener) this);
-        state = false;
+//                mButton.setOnClickListener((View.OnClickListener) this);
+//                state = false;
 //        spinner = (Spinner)findViewById(R.id.spinner);
-        buttonGiroscope=(Button) findViewById(R.id.giroscope);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        sensorAccelerometr = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorGiroscope = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
 
 
-        System.out.println(sensorAccelerometr);
+        System.out.println(sensorGiroscope);
         graph = (GraphView) findViewById(R.id.graph);
-        series = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(0, 0),
-        });
-        series.setColor(Color.GREEN);
 
-        seriesX = new LineGraphSeries<DataPoint>(new DataPoint[]{
+
+        seriesY = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 new DataPoint(0, 0),
 
         });
-        seriesX.setColor(Color.BLACK);
-
-        seriesZ = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(0, 0),
-        });
-        seriesZ.setColor(Color.RED);
-
-        graph = (GraphView) findViewById(R.id.graph);
-        series = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(0, 0),
-        });
-        series.setColor(Color.BLUE);
-
-        seriesXX = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(0, 0),
-
-        });
-        seriesXX.setColor(Color.YELLOW);
-
-        seriesZZ = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(0, 0),
-        });
-        seriesZZ.setColor(Color.LTGRAY);
-
+        seriesY.setColor(Color.BLACK);
 
         seriesYY = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 new DataPoint(0, 0),
         });
-        seriesYY.setColor(Color.MAGENTA);
+        seriesYY.setColor(Color.BLUE);
 
-        graph.addSeries(seriesXX);
+        graph = (GraphView) findViewById(R.id.graph);
+
+        graph.addSeries(seriesY);
         graph.addSeries(seriesYY);
-        graph.addSeries(seriesZZ);
-        graph.addSeries(seriesX);
-        graph.addSeries(series);
-        graph.addSeries(seriesZ);
+
+
 
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
@@ -136,43 +96,19 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         float z = values[2];
         System.out.println(z);
 
-        if (state) {
-            timer++;
-            if (timer % 5 == 0) {
-                System.out.println(timer);
-                // saveText(event);
-            }
-        }
 
 
-        graph2LastXValue += 1d;
         graph2LastYValue += 1d;
-        graph2LastZValue += 1d;
 
-        xx = (float) (On_1 + altha * (x - On_1));
-        yy = (float) (On_1 + altha * (y - On_1));
-        zz = (float) (On_1 + altha * (z - On_1));
 
-        series.appendData(new DataPoint(graph2LastYValue, y), true, 20);
-        seriesX.appendData(new DataPoint(graph2LastXValue, x), true, 20);
-        seriesZ.appendData(new DataPoint(graph2LastZValue, z), true, 20);
-        seriesXX.appendData(new DataPoint(graph2LastXValue, xx), true, 20);
-        seriesYY.appendData(new DataPoint(graph2LastYValue, yy), true, 20);
-        seriesZZ.appendData(new DataPoint(graph2LastZValue, zz), true, 20);
-        graph.addSeries(series);
-        graph.addSeries(seriesX);
-        graph.addSeries(seriesZ);
+        seriesY.appendData(new DataPoint(graph2LastYValue, y), true, 20);
+        seriesYY.appendData(new DataPoint(graph2LastYValue, y), true, 20);
 
-        if (!graficflag) {
-            graph.removeSeries(seriesXX);
-            graph.removeSeries(seriesYY);
-            graph.removeSeries(seriesZZ);
-        } else {
-            graph.addSeries(seriesXX);
-            graph.addSeries(seriesYY);
-            graph.addSeries(seriesZZ);
+        graph.addSeries(seriesYY);
+        graph.addSeries(seriesY);
 
-        }
+
+
         //*добавление фильтра
 //        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
 //                new DataPoint(x, y),
@@ -237,33 +173,55 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     @Override
     protected void onResume() {
         super.onResume();
-        mSensorManager.registerListener(this, sensorAccelerometr, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, sensorGiroscope, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
     protected void onDestroy() {
-        mSensorManager.unregisterListener(MainActivity.this);
+        mSensorManager.unregisterListener(GiroscopeYY.this);
         thread.interrupt();
         super.onDestroy();
     }
 
+//        public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(this, AccelerometrXX.class);
+//
+//                startActivity(intent);
+//                finish();
+//        }
+//        public void onClicks(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(this, ActivityYY.class);
+//
+//                startActivity(intent);
+//                finish();
+//        }
+//        public void onClickss(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(this, ActivityZZ.class);
+//
+//                startActivity(intent);
+//                finish();
+//        }
+
     public void onClick(View v) {
         Intent intent = new Intent();
-        intent.setClass(this, AccelerometrXX.class);
+        intent.setClass(this, GiroscopeXX.class);
 
         startActivity(intent);
         finish();
     }
     public void onClicks(View v) {
         Intent intent = new Intent();
-        intent.setClass(this, ActivityYY.class);
+        intent.setClass(this, GiroscopeYY.class);
 
         startActivity(intent);
         finish();
     }
     public void onClickss(View v) {
         Intent intent = new Intent();
-        intent.setClass(this, ActivityZZ.class);
+        intent.setClass(this, GiroscopeZZ.class);
 
         startActivity(intent);
         finish();
@@ -276,3 +234,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         finish();
     }
 }
+
+
+
+

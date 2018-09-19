@@ -1,26 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AccelerometrXX">
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<android.support.constraint.Re xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".AccelerometrXX">-->
+
+    <!--///-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/Kof"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14dp"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="126dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="44dp"
+        android:textColor="@color/colorPrimary"
+        android:visibility="visible" />
+
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
-        android:layout_height="343dp"
+        android:layout_height="450dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="50dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        layout_alignEnd="@+id/editText"
+        android:layout_width="40dp"
+        android:layout_height="19dp"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/holo_green_dark"
+        android:text="ok"
+        tools:ignore="MissingPrefix" />
+
     <Button
         android:id="@+id/buttonXX"
-        android:layout_width="130dp"
+        android:layout_width="350dp"
         android:layout_height="40dp"
-        android:layout_alignTop="@+id/buttonYY"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-
-        android:onClick="onClick"
+        android:layout_marginBottom="17dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/Main"
-        tools:ignore="UnknownId" />
+        android:background="@android:color/holo_green_dark"
+        android:onClick="onClick" />
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

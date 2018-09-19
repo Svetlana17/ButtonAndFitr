@@ -24,7 +24,7 @@
         android:layout_alignTop="@+id/buttonYY"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/holo_green_dark"
         android:onClick="onClick"
         android:text="@string/xx"
         tools:ignore="UnknownId" />
@@ -37,19 +37,45 @@
         android:layout_marginLeft="135dp"
         android:onClick="onClick"
         android:text="@string/yy"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/holo_green_dark"
         tools:ignore="UnknownId" />
     <Button
         android:id="@+id/buttonZZ"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@android:color/holo_green_dark"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="250dp"
         android:onClick="onClick"
         android:text="@string/zz"
         tools:ignore="UnknownId" />
 
+    <!--<Button-->
+        <!--android:id="@+id/giroscope"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:background="@android:color/holo_green_dark"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_marginLeft="350dp"-->
+        <!--android:onClick="onClick"-->
+        <!--android:text="@string/giroscope"-->
+        <!--tools:ignore="UnknownId" />-->
+
+
+    <Button
+        android:id="@+id/giroscope"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="500dp"
+        android:text="@string/giroscope"
+        android:background="@android:color/holo_green_dark"
+        android:onClick="onClick" />
 
 
 

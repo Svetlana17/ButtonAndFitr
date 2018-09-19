@@ -19,7 +19,10 @@
         <activity android:name=".AccelerometrXX" />
         <activity android:name=".ActivityYY" />
         <activity android:name=".ActivityZZ" />
-        <activity android:name=".GiroscopeActivity"></activity>
+        <activity android:name=".GiroscopeActivity" />
+        <activity android:name=".GiroscopeXX" />
+        <activity android:name=".GiroscopeYY" />
+        <activity android:name=".GiroscopeZZ"></activity>
     </application>
 
 </manifest>
