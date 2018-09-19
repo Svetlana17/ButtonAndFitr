@@ -1,0 +1,57 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:id="@+id/chart_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:color="@android:color/holo_green_dark">
+    </LinearLayout>
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:id="@+id/buttonXX"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/buttonYY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:background="@color/colorPrimary"
+        android:onClick="onClick"
+        android:text="@string/xx"
+        tools:ignore="UnknownId" />
+    <Button
+        android:id="@+id/buttonYY"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/buttonYY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="135dp"
+        android:onClick="onClick"
+        android:text="@string/yy"
+        android:background="@color/colorPrimary"
+        tools:ignore="UnknownId" />
+    <Button
+        android:id="@+id/buttonZZ"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="250dp"
+        android:onClick="onClick"
+        android:text="@string/zz"
+        tools:ignore="UnknownId" />
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

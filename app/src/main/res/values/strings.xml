@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ButtonAndFitr</string>
+    <string name="yy">yy</string>
+    <string name="zz">zz</string>
+    <string name="xx">xx</string>
+    <string name="Main">На главную</string>
+    <string name="Mains">Главная</string>
+
+
+
+
+    <string name="title_activity_run">title_activity_run</string>
+    <string name="filtr">Фильтрованное значение</string>
+    <string name="acselerometr">Акселерометр</string>
+
+    <string name="MOVENENT">Перемещение</string>
+    <string name="FILRTNCH">Фильтр нижних частот</string>
+    <string name="Pereiti">Перейти</string>
+    <string name="Kof">Коэффициент фильтрации</string>
+    <string name="giroscope">Гироскоп</string>
+</resources>
